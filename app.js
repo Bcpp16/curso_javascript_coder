@@ -1,3 +1,6 @@
+
+
+
 function mostrarMenu() {
     // Array de productos con sus precios
     const menu = [
