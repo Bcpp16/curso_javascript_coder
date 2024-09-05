@@ -1,17 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    mostrarMenu();
-    // Inicialización de Swiper
-    var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-});
-
-
 function mostrarMenu() {
     // Array de productos con sus precios
     const menu = [
