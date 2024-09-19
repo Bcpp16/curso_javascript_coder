@@ -1,19 +1,24 @@
-function mostrarMenu() {
-    // Array de productos con sus precios
-    const menu = [
-        { nombre: "Pan de Masa Madre", precio: 3.50 },
-        { nombre: "Baguette Tradicional", precio: 2.00 },
-        { nombre: "Croissant de Mantequilla", precio: 1.50 },
-        { nombre: "Pan Brioche", precio: 4.00 },
-        { nombre: "Pain au Chocolat", precio: 2.50 },
-        { nombre: "Pan de Avena y Miel", precio: 3.00 },
-        { nombre: "Focaccia con Romero y Sal Marina", precio: 4.50 },
-        { nombre: "Pan Integral de Semillas", precio: 3.50 },
-        { nombre: "Pan de Centeno", precio: 3.00 },
-        { nombre: "Galletas de Avena y Pasas", precio: 1.00 }
-    ];
+document.addEventListener("DOMContentLoaded", function() {
+    mostrarMenu();
+});
 
-    // Mostrar el menú al usuario directamente
+
+function mostrarMenu() {
+    // Objeto de productos con sus precios
+    const menu = {
+        1: { nombre: "Pan de Masa Madre", precio: 3.50 },
+        2: { nombre: "Baguette Tradicional", precio: 2.00 },
+        3: { nombre: "Croissant de Mantequilla", precio: 1.50 },
+        4: { nombre: "Pan Brioche", precio: 4.00 },
+        5: { nombre: "Pain au Chocolat", precio: 2.50 },
+        6: { nombre: "Pan de Avena y Miel", precio: 3.00 },
+        7: { nombre: "Focaccia con Romero y Sal Marina", precio: 4.50 },
+        8: { nombre: "Pan Integral de Semillas", precio: 3.50 },
+        9: { nombre: "Pan de Centeno", precio: 3.00 },
+        10: { nombre: "Galletas de Avena y Pasas", precio: 1.00 }
+    };
+
+    // Mostrar el menú al usuario
     let mensaje = 
         "Bienvenido a Drakkar, selecciona un producto del menú:\n" +
         "1. Pan de Masa Madre - $3.50\n" +
@@ -31,6 +36,7 @@ function mostrarMenu() {
 
     let total = 0;
     let pedido = [];
+    let descuento = 0;
 
     // Bucle para seleccionar productos
     while (true) {
@@ -52,8 +58,8 @@ function mostrarMenu() {
         }
 
         // Validar la selección del usuario
-        if (seleccion >= 1 && seleccion <= menu.length) {
-            let productoSeleccionado = menu[seleccion - 1];
+        if (menu[seleccion]) {
+            let productoSeleccionado = menu[seleccion];
             pedido.push(productoSeleccionado);
             total += productoSeleccionado.precio;
             alert("Has agregado " + productoSeleccionado.nombre + " al carrito. Total hasta ahora: $" + total.toFixed(2));
@@ -62,17 +68,24 @@ function mostrarMenu() {
         }
     }
 
-    // Mostrar el resumen del pedido
+    // Aplicar descuento si el usuario se suscribe al newsletter
     if (pedido.length > 0) {
+        let suscripcion = confirm("¿Te gustaría suscribirte a nuestro newsletter y obtener un 15% de descuento en tu compra?");
+        if (suscripcion) {
+            descuento = total * 0.15;
+            total = total - descuento;
+            alert("¡Gracias por suscribirte! Se te ha aplicado un 15% de descuento.");
+        }
+
+        // Mostrar el resumen del pedido
         let resumen = "Tu pedido:\n";
         for (let i = 0; i < pedido.length; i++) {
             resumen += "- " + pedido[i].nombre + " - $" + pedido[i].precio.toFixed(2) + "\n";
         }
+        resumen += "Descuento: $" + descuento.toFixed(2) + "\n";
         resumen += "Total a pagar: $" + total.toFixed(2);
         alert(resumen);
     } else {
         alert("No has seleccionado ningún producto.");
     }
 }
-
-
