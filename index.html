@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drakkar | Tienda online</title>
@@ -9,142 +9,149 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-
-  </head>
-
-  <body>
+</head>
+<body>
     <header>
-      <nav class="nav">
-        <a class="nav__logo" href="#">Drakkar</a>
-
-        <ul class="nav__list">
-          <li><a class="nav__list_item" href="#">Menu</a></li>
-          <li><a class="nav__list_item" href="#">Galería</a></li>
-          <li><a class="nav__list_item" href="#">Sobre nosotros</a></li>
-          <li><a class="nav__list_item" href="#">Contacto</a></li>
-        </ul>
-
-        <div class="nav__icons">
-          <span class="material-symbols-rounded">search</span>
-          <span class="material-symbols-rounded"> shopping_cart</span>
-        </div>
-      </nav>
+        <nav class="nav">
+            <a class="nav__logo" href="#">Drakkar</a>
+            <ul class="nav__list">
+                <li><a class="nav__list_item" href="#">Menu</a></li>
+                <li><a class="nav__list_item" href="#">Galería</a></li>
+                <li><a class="nav__list_item" href="#">Sobre nosotros</a></li>
+                <li><a class="nav__list_item" href="#">Contacto</a></li>
+            </ul>
+            <div class="nav__icons">
+                <span class="material-symbols-rounded">search</span>
+                <span class="material-symbols-rounded shopping_cart" onclick="openModal()">shopping_cart</span>
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+        </nav>
     </header>
-
+    
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Carrito de Compras</h2>
+          <ul id="cart-items"></ul>
+          <p id="cart-total"></p>
+          <button class="checkout-btn btn" onclick="finalizarCompra()">Finalizar Compra</button>
+      </div>
+  </div>
+  
     <main class="main">
-      <div class="hero">
-        <div class="hero__info">
-          <h1>Sabor artesanal directo a tu casa.</h1>
-          <p>
-            El arte de la cocina se encuentra en los ingredientes mas frescos y
-            naturales de nuestros productos. . Nuestros productos, horneados a
-            diario, reflejan la dedicación a la calidad y el sabor. Desde el pan
-            rústico hasta los postres más delicados, cada pieza es una obra de
-            arte que puedes disfrutar en tu hogar.
-          </p>
+        <div class="hero">
+            <div class="hero__info">
+                <h1>Sabor artesanal directo a tu casa.</h1>
+                <p>
+                    El arte de la cocina se encuentra en los ingredientes más frescos y
+                    naturales de nuestros productos. Nuestros productos, horneados a
+                    diario, reflejan la dedicación a la calidad y el sabor. Desde el pan
+                    rústico hasta los postres más delicados, cada pieza es una obra de
+                    arte que puedes disfrutar en tu hogar.
+                </p>
+            </div>
+            <div class="hero__img"></div>
+            <div class="hero__btn_mouse">
+                <span class="material-symbols-rounded">arrow_downward_alt</span>
+            </div>
         </div>
-
-        <div class="hero__img"></div>
-
-        <div class="hero__btn_mouse">
-          <span class="material-symbols-rounded"> arrow_downward_alt </span>
-        </div>
-      </div>
-
-      <section class="main__menu">
-        <h2 class="subtitle">Menú</h2>
-
-        <div class="main__container_menu">
-          <ul class="main__menu_list">
-            <li class="main__menu_list_item">
-              <strong>Pan de Masa Madre</strong> - $3.50<br />
-              Pan rústico de fermentación lenta, con una corteza crujiente y un
-              interior suave y esponjoso.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Baguette Tradicional</strong> - $2.00<br />
-              Clásico pan francés, crujiente por fuera y ligero por dentro,
-              perfecto para acompañar cualquier comida.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Croissant de Mantequilla</strong> - $1.50<br />
-              Crujiente y dorado, hecho con mantequilla de alta calidad, ideal
-              para un desayuno o merienda gourmet.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Pan Brioche</strong> - $4.00<br />
-              Pan suave y esponjoso, ligeramente dulce, perfecto para acompañar
-              con mermelada o utilizar en recetas más creativas.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Pain au Chocolat</strong> - $2.50<br />
-              Deliciosa masa de croissant con relleno de chocolate, una
-              tentación irresistible.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Pan de Avena y Miel</strong> - $3.00<br />
-              Hecho con avena integral y un toque de miel, este pan es saludable
-              y delicioso, ideal para desayunos.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Focaccia con Romero y Sal Marina</strong> - $4.50<br />
-              Pan italiano esponjoso, aromatizado con romero fresco y una pizca
-              de sal marina.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Pan Integral de Semillas</strong> - $3.50<br />
-              Elaborado con harina integral y una mezcla de semillas, es
-              perfecto para quienes buscan opciones más saludables.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Pan de Centeno</strong> - $3.00<br />
-              Pan denso y sabroso, con un toque ligeramente ácido, ideal para
-              acompañar quesos y embutidos.
-            </li>
-            <li class="main__menu_list_item">
-              <strong>Galletas de Avena y Pasas</strong> - $1.00<br />
-              Crujientes y llenas de sabor, estas galletas son el snack perfecto
-              para cualquier momento del día.
-            </li>
-          </ul>
-
-          <div class="main__menu_img">
-            <img src="/img/bread-menu.jpg" alt="bread" />
-          </div>
-        </div>
-      </section>
-
+        <section class="main__menu">
+            <h2 class="subtitle">Menú</h2>
+            <div class="main__container_menu">
+                <ul class="main__menu_list">
+                    <li class="main__menu_list_item">
+                        <strong>Pan de Masa Madre</strong> - $3.50<br />
+                        Pan rústico de fermentación lenta, con una corteza crujiente y un
+                        interior suave y esponjoso.
+                        <button class="btn" onclick="addToCart('Pan de Masa Madre', 3.50)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Baguette Tradicional</strong> - $2.00<br />
+                        Clásico pan francés, crujiente por fuera y ligero por dentro,
+                        perfecto para acompañar cualquier comida.
+                        <button class="btn" onclick="addToCart('Baguette Tradicional', 2.00)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Croissant de Mantequilla</strong> - $1.50<br />
+                        Crujiente y dorado, hecho con mantequilla de alta calidad, ideal
+                        para un desayuno o merienda gourmet.
+                        <button class="btn" onclick="addToCart('Croissant de Mantequilla', 1.50)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Pan Brioche</strong> - $4.00<br />
+                        Pan suave y esponjoso, ligeramente dulce, perfecto para acompañar
+                        con mermelada o utilizar en recetas más creativas.
+                        <button class="btn" onclick="addToCart('Pan Brioche', 4.00)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Pain au Chocolat</strong> - $2.50<br />
+                        Deliciosa masa de croissant con relleno de chocolate, una
+                        tentación irresistible.
+                        <button class="btn" onclick="addToCart('Pain au Chocolat', 2.50)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Pan de Avena y Miel</strong> - $3.00<br />
+                        Hecho con avena integral y un toque de miel, este pan es saludable
+                        y delicioso, ideal para desayunos.
+                        <button class="btn" onclick="addToCart('Pan de Avena y Miel', 3.00)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Focaccia con Romero y Sal Marina</strong> - $4.50<br />
+                        Pan italiano esponjoso, aromatizado con romero fresco y una pizca
+                        de sal marina.
+                        <button class="btn" onclick="addToCart('Focaccia con Romero y Sal Marina', 4.50)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Pan Integral de Semillas</strong> - $3.50<br />
+                        Elaborado con harina integral y una mezcla de semillas, es
+                        perfecto para quienes buscan opciones más saludables.
+                        <button class="btn" onclick="addToCart('Pan Integral de Semillas', 3.50)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Pan de Centeno</strong> - $3.00<br />
+                        Pan denso y sabroso, con un toque ligeramente ácido, ideal para
+                        acompañar quesos y embutidos.
+                        <button class="btn" onclick="addToCart('Pan de Centeno', 3.00)">Agregar al carrito</button>
+                    </li>
+                    <li class="main__menu_list_item">
+                        <strong>Galletas de Avena y Pasas</strong> - $1.00<br />
+                        Crujientes y llenas de sabor, estas galletas son el snack perfecto
+                        para cualquier momento del día.
+                        <button class="btn" onclick="addToCart('Galletas de Avena y Pasas', 1.00)">Agregar al carrito</button>
+                    </li>
+                </ul>
+                <div class="main__menu_img">
+                    <img src="/img/bread-menu.jpg" alt="bread" />
+                </div>
+            </div>
+        </section>
     </main>
-
     <footer class="footer">
-      <div class="footer__container">
-        <ul class="nav__list">
-          <li><a class="nav__list_item" href="#">Menu</a></li>
-          <li><a class="nav__list_item" href="#">Galería</a></li>
-          <li><a class="nav__list_item" href="#">Sobre nosotros</a></li>
-          <li><a class="nav__list_item" href="#">Contacto</a></li>
-        </ul>
-
-        <div class="footer__container_newsletter">
-          <p>¡Suscribite y recibí todas nuestras novedades!</p>
-
-          <form action="">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Correo electrónico"
-            />
-          </form>
-
-          <div class="footer__container_newsletter-social">
-            <a href="#"><img src="/img/icons/instagram.png" alt="" /></a>
-            <a href="#"><img src="/img/icons/whatsapp.png" alt="" /></a>
-            <a href="#"><img src="/img/icons/facebook.png" alt="" /></a>
-          </div>
+        <div class="footer__container">
+            <ul class="nav__list">
+                <li><a class="nav__list_item" href="#">Menu</a></li>
+                <li><a class="nav__list_item" href="#">Galería</a></li>
+                <li><a class="nav__list_item" href="#">Sobre nosotros</a></li>
+                <li><a class="nav__list_item" href="#">Contacto</a></li>
+            </ul>
+            <div class="footer__container_newsletter">
+                <p>¡Suscribite y recibí todas nuestras novedades!</p>
+                <form action="">
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Correo electrónico"
+                    />
+                </form>
+                <div class="footer__container_newsletter-social">
+                    <a href="#"><img src="/img/icons/instagram.png" alt="" /></a>
+                    <a href="#"><img src="/img/icons/whatsapp.png" alt="" /></a>
+                    <a href="#"><img src="/img/icons/facebook.png" alt="" /></a>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
-    <script src="/app.js"></script>
-  </body>
+    <script src="app.js"></script>
+</body>
 </html>
